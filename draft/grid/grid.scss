@@ -1,0 +1,77 @@
+// Media variable
+$media-s: 600px;
+$media-sm: 601px;
+$media-m: 801px;
+$media-ml: 1201px;
+$media-l: 1401px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-size: var(--font-size);
+  // font-weight: var(--font-weight);
+  // width: var(--w);
+  // height: var(--h);
+  line-height: 100%;
+  // z-index: var(--z-index);
+}
+
+:root {
+  --column-cols: 1;
+  --column-gap: 0;
+  --row-gap: 0;
+  --column-start: 1;
+  --column-end: 1;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+// **Rules
+@mixin grid($var) {
+  // Framework
+  .#{$var}grid {
+    width: 100%;
+    display: grid;
+    grid-gap: var(--row-gap) var(--column-gap);
+    grid-template-columns: repeat(var(--column-cols), 1fr);
+    // * {
+    //     grid-column: var(--column-start) / var(--column-end);
+    // }
+  }
+  // Cols
+  .#{$var}column- {
+    @for $cols from 1 to 36 {
+      &#{$cols} {
+        --column-cols: #{$cols};
+      }
+    }
+  }
+  // Items***
+  .#{$var}#{'column'+'\\'+':'} {
+      @for $start from -10 to 36 {
+          @for $end from -10 to 36 {
+              &#{$start}-#{$end} {
+                  --column-start: #{$start};
+                  --column-end: #{$end};
+                  grid-column: var(--column-start) / var(--column-end);
+              }
+          }
+      }
+  }
+}
+// Media Worker
+$media-worker:'' '',
+#{'s'+'\\'+':'} 'and (max-width: #{$media-s})',
+#{'sm'+'\\'+':'} 'and (min-width: #{$media-sm})',
+#{'m'+'\\'+':'} 'and (min-width: #{$media-m})',
+#{'ml'+'\\'+':'} 'and (min-width: #{$media-ml})',
+#{'l'+'\\'+':'} 'and (min-width: #{$media-l})';
+
+@each $class,
+$media in $media-worker {
+    @media screen #{$media} {
+        @include grid($class);
+    }
+}

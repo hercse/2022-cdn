@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        filter: contrast(2500%);
+      }
+      img {
+        filter: brightness(0.5) blur(2px);
+      }
+      body::after {
+        backdrop-filter: grayscale(100%);
+        content: "";
+        position: fixed;
+        top: -5%;
+        left: -50%;
+        width: 200vw;
+        height: 200vh;
+        background-blend-mode: multiply;
+        background: radial-gradient(8px, rgb(0, 0, 0), white);
+        background-size: 8px 8px;
+        background-position: 0 -3px, -2px 0, 2px 0;
+        mix-blend-mode: screen;
+        pointer-events: none;
+        transform: rotate(11.25deg) scale(0.5);
+        transition: 1s ease-in-out transform;
+      }
+      body {
+        height: 1000vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="aa">
+      <img width="800" src="https://picsum.photos/400" alt="" />
+    </div>
+  </body>
+</html>

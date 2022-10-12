@@ -1,0 +1,17 @@
+@import "variables";
+// 預設值
+@import "root";
+// 設定變數
+@import "all";
+
+body * {
+  // margin: 0;
+  // padding: 0;
+  box-sizing: border-box;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  width: var(--w);
+  height: var(--h);
+  line-height: 100%;
+  z-index: var(--z-index);
+}

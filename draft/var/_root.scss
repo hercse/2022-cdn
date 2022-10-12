@@ -1,0 +1,23 @@
+:root {
+  // basic
+  --z-index: 1 !important;
+  // font
+  --font-size: #{""} !important;
+  --font-weight: #{""} !important;
+  --w: #{""} !important;
+  --h: #{""} !important;
+  // function
+  $var-media: "xs-", "s-", "sm-", "m-", "ml-", "l-", "lx-", "";
+  $var-postition: "t", "b", "r", "l", "x", "y";
+  $var-postition-list: "m", "p", "border-";
+  @each $media in $var-media {
+    --#{$media}d: block !important;
+    --#{$media}position: #{""} !important;
+    @each $list in $var-postition-list {
+      @each $postition in $var-postition {
+        // padding & margin
+        --#{$media+$list+$postition}: #{""} !important;
+      }
+    }
+  }
+}

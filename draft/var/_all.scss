@@ -1,0 +1,32 @@
+$media-all: "" "", #{"s-"} "and (max-width: #{$media-s})",
+  #{"sm-"} "and (min-width: #{$media-sm})",
+  #{"m-"} "and (min-width: #{$media-m})",
+  #{"ml-"} "and (min-width: #{$media-ml})",
+  #{"l-"} "and (min-width: #{$media-l})";
+
+@each $perfix, $class in $media-all {
+  @media screen #{$class} {
+    body * {
+      position: var(--#{$perfix}position);
+      display: var(--#{$perfix}display);
+      // margin
+      margin: var(--#{$perfix}m);
+      margin-top: var(--#{$perfix}mt);
+      margin-bottom: var(--#{$perfix}mb);
+      margin-right: var(--#{$perfix}mr);
+      margin-left: var(--#{$perfix}ml);
+      // padding
+      padding: var(--#{$perfix}p);
+      padding-top: var(--#{$perfix}mt);
+      padding-bottom: var(--#{$perfix}mb);
+      padding-right: var(--#{$perfix}mr);
+      padding-left: var(--#{$perfix}ml);
+      //   border
+      border-width: var(--#{$perfix}border);
+      border-top-width: var(--#{$perfix}border-t);
+      border-left-width: var(--#{$perfix}border-l);
+      border-right-width: var(--#{$perfix}border-r);
+      border-bottom-width: var(--#{$perfix}border-b);
+    }
+  }
+}
